@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>K. Chandu | Student Portfolio</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #0b1120;
+  color: #f1f5f9;
+  line-height: 1.7;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 8%;
+  background: #111a2e;
+  border-bottom: 1px solid #25314a;
+}
+
+.logo {
+  font-size: 25px;
+  font-weight: bold;
+  color: #38bdf8;
+}
+
+nav {
+  display: flex;
+  gap: 24px;
+}
+
+nav a {
+  font-size: 14px;
+  color: #cbd5e1;
+}
+
+nav a:hover {
+  color: #38bdf8;
+}
+
+.menu-btn {
+  display: none;
+  background: none;
+  color: white;
+  border: 0;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+.hero {
+  min-height: 88vh;
+  padding: 70px 8%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  background: radial-gradient(circle at 80% 30%, #172c4c, #0b1120 60%);
+}
+
+.hero-content {
+  max-width: 650px;
+}
+
+.tag {
+  display: inline-block;
+  background: #102d43;
+  color: #38bdf8;
+  border: 1px solid #20506d;
+  padding: 6px 13px;
+  border-radius: 25px;
+  font-size: 12px;
+}
+
+.hero h1 {
+  font-size: clamp(38px, 6vw, 65px);
+  line-height: 1.2;
+  margin: 22px 0 12px;
+}
+
+.hero h1 span {
+  color: #38bdf8;
+}
+
+.hero h2 {
+  color: #cbd5e1;
+  font-size: 22px;
+  font-weight: normal;
+}
+
+.hero p {
+  color: #94a3b8;
+  margin: 18px 0;
+  max-width: 550px;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 25px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 21px;
+  border-radius: 8px;
+  font-weight: bold;
+  border: 1px solid #38bdf8;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-primary {
+  background: #38bdf8;
+  color: #07111e;
+}
+
+.btn-outline {
+  color: #38bdf8;
+  background: transparent;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  opacity: 0.85;
+}
+
+.profile-box {
+  min-width: 230px;
+  width: 290px;
+  height: 290px;
+  border: 2px solid #38bdf8;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #152b48, #0d1729);
+  box-shadow: 0 0 45px #38bdf822;
+}
+
+.profile-box span {
+  font-size: 100px;
+}
+
+section {
+  padding: 75px 8%;
+}
+
+.section-title {
+  font-size: 34px;
+  margin-bottom: 10px;
+}
+
+.section-subtitle {
+  color: #94a3b8;
+  margin-bottom: 30px;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 25px;
+}
+
+.card {
+  padding: 25px;
+  border-radius: 14px;
+  background: #111a2e;
+  border: 1px solid #25314a;
+  transition: 0.2s;
+}
+
+.card:hover {
+  border-color: #38bdf8;
+  transform: translateY(-3px);
+}
+
+.card h3 {
+  color: #38bdf8;
+  margin-bottom: 12px;
+}
+
+.card p {
+  color: #cbd5e1;
+  overflow-wrap: anywhere;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 9px 0;
+  border-bottom: 1px solid #25314a;
+}
+
+.info-row span:first-child {
+  color: #94a3b8;
+}
+
+.info-row span:last-child {
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.skill {
+  background: #111a2e;
+  border: 1px solid #25314a;
+  border-radius: 12px;
+  padding: 23px;
+  text-align: center;
+}
+
+.skill .emoji {
+  font-size: 35px;
+}
+
+.skill h3 {
+  margin-top: 8px;
+  color: #38bdf8;
+}
+
+.skill p {
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.project-icon {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.project-card p {
+  margin-bottom: 15px;
+}
+
+.project-card .btn {
+  margin-top: 8px;
+  font-size: 13px;
+  padding: 9px 14px;
+}
+
+.contact-section {
+  background: #0e1729;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  align-items: start;
+}
+
+.contact-link {
+  display: block;
+  margin: 15px 0;
+  color: #cbd5e1;
+  overflow-wrap: anywhere;
+}
+
+.contact-link strong {
+  color: #38bdf8;
+}
+
+.contact-form label {
+  display: block;
+  margin: 13px 0 6px;
+  color: #cbd5e1;
+  font-size: 14px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 13px;
+  background: #0b1120;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  color: white;
+  outline: none;
+  font: inherit;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #38bdf8;
+}
+
+.contact-form textarea {
+  resize: vertical;
+}
+
+.contact-form button {
+  margin-top: 18px;
+  width: 100%;
+  font: inherit;
+}
+
+#formMessage {
+  margin-top: 12px;
+  color: #38bdf8;
+  font-size: 14px;
+}
+
+footer {
+  text-align: center;
+  padding: 25px 15px;
+  border-top: 1px solid #25314a;
+  color: #94a3b8;
+  font-size: 13px;
+}
+
+footer span {
+  color: #38bdf8;
+}
+
+@media (max-width: 800px) {
+  .hero {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    padding-top: 45px;
+  }
+
+  .profile-box {
+    align-self: center;
+    width: 220px;
+    height: 220px;
+    min-width: 220px;
+  }
+
+  .profile-box span {
+    font-size: 75px;
+  }
+
+  .about-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  header {
+    padding: 14px 5%;
+    flex-wrap: wrap;
+  }
+
+  .menu-btn {
+    display: block;
+  }
+
+  nav {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  nav.open {
+    display: flex;
+  }
+
+  nav a {
+    padding: 10px 0;
+    border-top: 1px solid #25314a;
+  }
+
+  section {
+    padding: 50px 5%;
+  }
+
+  .hero {
+    padding: 45px 5%;
+  }
+
+  .hero h1 {
+    font-size: 42px;
+  }
+
+  .hero h2 {
+    font-size: 19px;
+  }
+
+  .section-title {
+    font-size: 29px;
+  }
+
+  .skills-grid,
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .info-row {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .info-row span:last-child {
+    text-align: left;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a class="logo" href="#home">K.Chandu<span>.</span></a>
+
+  <button class="menu-btn" id="menuBtn"
+    aria-label="Toggle navigation" aria-expanded="false">☰</button>
+
+  <nav id="navigation">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main>
+
+<section class="hero" id="home">
+  <div class="hero-content">
+    <span class="tag">STUDENT PORTFOLIO · DIGITAL TECHNOLOGY</span>
+
+    <h1>Hello, I'm<br><span>K. Chandu</span></h1>
+
+    <h2>B.Tech Student | Aspiring Web Developer</h2>
+
+    <p>
+      Welcome to my portfolio! I am a student interested in technology,
+      programming, and web development. I am learning new skills and
+      building projects to grow my technical knowledge.
+    </p>
+
+    <div class="buttons">
+      <a href="#about" class="btn btn-primary">Explore My Portfolio</a>
+      <a href="#contact" class="btn btn-outline">Contact Me</a>
+    </div>
+  </div>
+
+  <div class="profile-box">
+    <span>👨‍💻</span>
+  </div>
+</section>
+
+<section id="about">
+  <h2 class="section-title">About Me</h2>
+  <p class="section-subtitle">
+    A little information about me and my academic journey.
+  </p>
+
+  <div class="about-grid">
+    <div class="card">
+      <h3>👋 Introduction</h3>
+      <p>
+        My name is K. Chandu. I am a B.Tech student studying Digital
+        Technology. I am interested in learning programming, creating
+        websites, and exploring modern technologies. My goal is to
+        improve my technical skills through practice and projects.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>🎓 Academic Details</h3>
+
+      <div class="info-row">
+        <span>Name</span>
+        <span>K. Chandu</span>
+      </div>
+
+      <div class="info-row">
+        <span>PRN</span>
+        <span>250105231509</span>
+      </div>
+
+      <div class="info-row">
+        <span>Subject</span>
+        <span>Digital Technology</span>
+      </div>
+
+      <div class="info-row">
+        <span>Program</span>
+        <span>B.Tech</span>
+      </div>
+
+      <div class="info-row">
+        <span>Interest</span>
+        <span>Web Development</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <h2 class="section-title">My Skills</h2>
+  <p class="section-subtitle">
+    Technologies I am learning and practising.
+  </p>
+
+  <div class="skills-grid">
+    <div class="skill">
+      <div class="emoji">🌐</div>
+      <h3>HTML</h3>
+      <p>Creating web page structures.</p>
+    </div>
+
+    <div class="skill">
+      <div class="emoji">🎨</div>
+      <h3>CSS</h3>
+      <p>Styling and responsive layouts.</p>
+    </div>
+
+    <div class="skill">
+      <div class="emoji">⚡</div>
+      <h3>JavaScript</h3>
+      <p>Adding interaction to websites.</p>
+    </div>
+
+    <div class="skill">
+      <div class="emoji">💻</div>
+      <h3>C Programming</h3>
+      <p>Learning programming fundamentals.</p>
+    </div>
+
+    <div class="skill">
+      <div class="emoji">🛠️</div>
+      <h3>VS Code</h3>
+      <p>Writing and testing code.</p>
+    </div>
+
+    <div class="skill">
+      <div class="emoji">📚</div>
+      <h3>Learning</h3>
+      <p>Practising and improving every day.</p>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <h2 class="section-title">My Projects</h2>
+  <p class="section-subtitle">
+    Projects I can build and develop as a student.
+  </p>
+
+  <div class="project-grid">
+    <div class="card project-card">
+      <div class="project-icon">🔎</div>
+      <h3>Campus Lost & Found</h3>
+      <p>
+        A website concept where students can post lost and found
+        items, search the board, and contact the item poster.
+      </p>
+      <a href="#contact" class="btn btn-outline">Discuss Project</a>
+    </div>
+
+    <div class="card project-card">
+      <div class="project-icon">🛒</div>
+      <h3>Online Shopping Website</h3>
+      <p>
+        A shopping website concept with product cards, navigation,
+        search features, and a responsive layout.
+      </p>
+      <a href="#contact" class="btn btn-outline">Discuss Project</a>
+    </div>
+  </div>
+</section>
+
+<section class="contact-section" id="contact">
+  <h2 class="section-title">Contact Me</h2>
+  <p class="section-subtitle">
+    Feel free to contact me for academic or project-related discussions.
+  </p>
+
+  <div class="contact-grid">
+    <div class="card">
+      <h3>📩 My Contact Details</h3>
+
+      <a class="contact-link"
+        href="mailto:chandukore04@gmail.com">
+        <strong>Email:</strong><br>
+        chandukore04@gmail.com
+      </a>
+
+      <a class="contact-link" href="tel:6305844497">
+        <strong>Phone:</strong><br>
+        6305844497
+      </a>
+
+      <div class="contact-link">
+        <strong>Subject:</strong><br>
+        Digital Technology
+      </div>
+    </div>
+
+    <form class="card contact-form" id="contactForm">
+      <h3>Send a Message</h3>
+
+      <label for="visitorName">Your Name</label>
+      <input id="visitorName" required maxlength="80"
+        placeholder="Enter your name">
+
+      <label for="visitorEmail">Your Email</label>
+      <input id="visitorEmail" type="email" required
+        placeholder="Enter your email">
+
+      <label for="visitorMessage">Your Message</label>
+      <textarea id="visitorMessage" required maxlength="1000"
+        rows="4" placeholder="Write your message..."></textarea>
+
+      <button type="submit" class="btn btn-primary">
+        Send Email
+      </button>
+
+      <p id="formMessage" role="status"></p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <p>Designed by <span>K. Chandu</span></p>
+  <p>Student Portfolio | Digital Technology</p>
+  <small>© 2026 K. Chandu. All rights reserved.</small>
+</footer>
+
+<script>
+const menuBtn = document.getElementById("menuBtn");
+const navigation = document.getElementById("navigation");
+
+menuBtn.addEventListener("click", function() {
+  const isOpen = navigation.classList.toggle("open");
+  menuBtn.setAttribute("aria-expanded", String(isOpen));
+  menuBtn.textContent = isOpen ? "✕" : "☰";
+});
+
+navigation.querySelectorAll("a").forEach(function(link) {
+  link.addEventListener("click", function() {
+    navigation.classList.remove("open");
+    menuBtn.setAttribute("aria-expanded", "false");
+    menuBtn.textContent = "☰";
+  });
+});
+
+document.getElementById("contactForm").addEventListener("submit",
+  function(event) {
+    event.preventDefault();
+
+    const name = document.getElementById("visitorName").value.trim();
+    const email = document.getElementById("visitorEmail").value.trim();
+    const message = document.getElementById("visitorMessage").value.trim();
+
+    if (!name || !email || !message) {
+      document.getElementById("formMessage").textContent =
+        "Please complete all fields.";
+      return;
+    }
+
+    const subject = encodeURIComponent("Portfolio enquiry from " + name);
+    const body = encodeURIComponent(
+      "Name: " + name +
+      "\nEmail: " + email +
+      "\n\nMessage:\n" + message
+    );
+
+    document.getElementById("formMessage").textContent =
+      "Opening your email application...";
+
+    window.location.href =
+      "mailto:chandukore04@gmail.com?subject=" +
+      subject + "&body=" + body;
+  }
+);
+</script>
+
+</body>
+</html>
